@@ -51,11 +51,11 @@ func (i *voiceInstance) Init() error {
 	}
 	i.sourceProcess = silentSourceCmd.Process
 
-	gatewayUrl := getGatewayUrl(i.Token, i.ChannelId)
-	connect, rtpUrl := initWebsocketClient(gatewayUrl)
+	gatewayUrl := GetGatewayUrl(i.Token, i.ChannelId)
+	connect, rtpUrl := InitWebsocketClient(gatewayUrl)
 
-	go keepWebsocketClientAlive(connect)
-	go keepRecieveMessage(connect)
+	go KeepWebsocketClientAlive(connect)
+	go KeepRecieveMessage(connect)
 
 	i.wsConnect = connect
 

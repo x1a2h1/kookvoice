@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 
-	"github.com/shuyangzhang/kookvoice"
+	"github.com/x1a2h1/kookvoice"
 )
 
 var (

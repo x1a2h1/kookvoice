@@ -14,7 +14,7 @@ const (
 	GATEWAY_URL = "https://www.kaiheila.cn/api/v3/gateway/voice?channel_id=%v"
 )
 
-func getGatewayUrl(token string, channelId string) string {
+func GetGatewayUrl(token string, channelId string) string {
 	req, err := http.NewRequest(
 		http.MethodGet,
 		fmt.Sprintf(GATEWAY_URL, channelId),
@@ -42,7 +42,7 @@ func getGatewayUrl(token string, channelId string) string {
 	return gatewayUrl
 }
 
-func initWebsocketClient(websocketHost string) (*websocket.Conn, string) {
+func InitWebsocketClient(websocketHost string) (*websocket.Conn, string) {
 	dialer := websocket.Dialer{}
 	connect, _, err := dialer.Dial(websocketHost, nil)
 	if err != nil {
@@ -216,7 +216,7 @@ func recieveMessageOnce(connect *websocket.Conn) []byte {
 	return messageData
 }
 
-func keepRecieveMessage(connect *websocket.Conn) {
+func KeepRecieveMessage(connect *websocket.Conn) {
 	for {
 		messageType, messageData, err := connect.ReadMessage()
 		if err != nil {
@@ -241,7 +241,7 @@ func keepRecieveMessage(connect *websocket.Conn) {
 	}
 }
 
-func keepWebsocketClientAlive(connect *websocket.Conn) {
+func KeepWebsocketClientAlive(connect *websocket.Conn) {
 	for {
 		time.Sleep(30 * time.Second)
 		err := connect.WriteMessage(

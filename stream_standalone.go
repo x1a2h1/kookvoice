@@ -9,7 +9,7 @@ import (
 	"github.com/amenzhinsky/go-memexec"
 )
 
-func streamAudio(rtpUrl string, audioSource string) {
+func StreamAudio(rtpUrl string, audioSource string) {
 	exe, err := memexec.New(memoryBinary)
 	if err != nil {
 		panic(err)

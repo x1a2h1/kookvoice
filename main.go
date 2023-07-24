@@ -1,12 +1,12 @@
 package kookvoice
 
 func Play(token string, channelId string, input string) {
-	gatewayUrl := getGatewayUrl(token, channelId)
-	connect, rtpUrl := initWebsocketClient(gatewayUrl)
+	gatewayUrl := GetGatewayUrl(token, channelId)
+	connect, rtpUrl := InitWebsocketClient(gatewayUrl)
 	defer connect.Close()
-	go keepWebsocketClientAlive(connect)
-	go keepRecieveMessage(connect)
-	streamAudio(rtpUrl, input)
+	go KeepWebsocketClientAlive(connect)
+	go KeepRecieveMessage(connect)
+	StreamAudio(rtpUrl, input)
 }
 
 func New(token string, channelId string) (*voiceInstance, error) {

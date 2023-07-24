@@ -7,7 +7,7 @@ import (
 	"os/exec"
 )
 
-func streamAudio(rtpUrl string, audioSource string) {
+func StreamAudio(rtpUrl string, audioSource string) {
 	fmt.Println(">>>> start streaming <<<<")
 
 	cmd := exec.Command(
